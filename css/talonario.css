@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(30, 30, 71);
+    color: aliceblue;
+}
+
+#talonario {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap:px;
+  margin: 0 auto;
+}
+
+
+/* Tickets */
+.ticket {
+  width: 80px;   /* tamaño del ticket */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: white; /* color del número */
+  background: url("/img/golden-coupon-ticket-label-promotion-illustration-vector-removebg-preview.png") center/cover no-repeat;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.ticket:hover {
+  transform: scale(1.05);
+}
+
+.ticket.disponible {
+  color: rgb(88, 88, 88);
+}
+
+.ticket.ocupado {
+  background: url("/img/6028777.png") center/cover no-repeat;
+  color: transparent;
+}
+
+/* Overlay modal */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+/* Contenido modal */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 300px;
+  animation: aparecer 0.3s ease;
+}
+
+.modal-content img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.modal-content h2 {
+  margin: 10px 0;
+}
+
+.numeros-box {
+  background: #eee;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Botón cerrar */
+#cerrar-info {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Animación */
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

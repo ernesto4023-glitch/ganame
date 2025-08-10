@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comprar Tickets</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/barraProgreso.js" defer></script>
+  <script src="js/registro.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Comprar Tickets</h1>
+
+      <!-- Barra de progreso reutilizable -->
+      <div id="barra-progreso"></div>
+
+      <!-- Tarjeta / Formulario -->
+      <form id="formRegistro" class="form-card" autocomplete="off">
+        <label>
+          Nombre
+          <input type="text" name="nombre" required>
+        </label>
+
+        <label>
+          Apellido
+          <input type="text" name="apellido" required>
+        </label>
+
+        <label>
+          WhatsApp
+          <input type="tel" name="whatsapp" required pattern="[0-9+]{6,}">
+        </label>
+
+        <label>
+          Cantidad de tickets (mínimo 2)
+          <div class="botones-cantidad">
+            <button type="button" class="btn-suma" data-suma="2">+2</button>
+            <button type="button" class="btn-suma" data-suma="5">+5</button>
+            <button type="button" class="btn-suma" data-suma="10">+10</button>
+            <button type="button" class="btn-suma" data-suma="30">+30</button>
+          </div>
+          <input id="cantidad" name="cantidad" type="number" value="2" min="2" required>
+        </label>
+
+        <p class="nota">Compra mínima: <strong>2 tickets</strong>. Números asignados automáticamente.</p>
+
+        <p><strong>Precio por ticket:</strong> Bs 190 — <strong>Total:</strong> <span id="totalPagar">380</span> Bs</p>
+
+        <label>Medios de pago (clic en la imagen para ver datos)</label>
+        <div class="bancos">
+          <img src="img/banco1.png" alt="Banco 1" class="img-banco" data-info="Banco 1\nTitular: Ernesto\nCuenta: 0123-456789\nCI: 12345678">
+          <img src="img/banco2.png" alt="Banco 2" class="img-banco" data-info="Banco 2\nTitular: Ernesto\nCuenta: 9876-543210\nCI: 87654321">
+        </div>
+
+        <div id="info-banco" class="banco-info" hidden></div>
+
+        <div class="acciones">
+          <button id="btnPagar" type="submit" class="btn-primary">Pagar / Enviar a WhatsApp</button>
+        </div>
+
+        <div id="mensaje" class="mensaje" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="/script/registro.js"></script>
+</body>
+</html>

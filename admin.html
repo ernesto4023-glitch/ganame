@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Admin</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/barraProgreso.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Administración</h1>
+
+    <!-- Login -->
+    <div id="loginAdmin" class="card">
+      <h2>Iniciar sesión</h2>
+      <label>Usuario
+        <input id="usuario" type="text" placeholder="usuario">
+      </label>
+      <label>Contraseña
+        <input id="clave" type="password" placeholder="contraseña">
+      </label>
+      <div style="margin-top:10px">
+        <button id="btnLogin" class="btn-primary">Ingresar</button>
+      </div>
+    </div>
+
+    <!-- Panel (oculto hasta login) -->
+    <section id="panelAdmin" class="card" style="display:none">
+      <div id="barra-progreso"></div>
+
+      <div class="resumen">
+        <div class="card-small">
+          <h3>Total clientes</h3>
+          <p id="totalClientes">0</p>
+        </div>
+        <div class="card-small">
+          <h3>Tickets vendidos</h3>
+          <p id="totalTickets">0</p>
+        </div>
+        <div class="card-small">
+          <h3>Pagados</h3>
+          <p id="totalPagados">0</p>
+        </div>
+        <div class="card-small">
+          <h3>Verificados</h3>
+          <p id="totalVerificados">0</p>
+        </div>
+        <div class="card-small">
+          <h3>Disponibles</h3>
+          <p id="totalDisponibles">0</p>
+        </div>
+      </div>
+
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>#</th><th>Nombre</th><th>WhatsApp</th><th>Cantidad</th><th>Números</th><th>Estado</th><th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAdmin"></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

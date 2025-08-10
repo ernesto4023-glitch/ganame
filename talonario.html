@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talonario de Rifas</title>
+  <link rel="stylesheet" href="/css/talonario.css">
+</head>
+<body>
+  <h1>Talonario de Prueba</h1>
+  <div id="barra-progreso"></div>
+
+<div id="talonario"></div>
+
+<div id="overlay" class="hidden">
+  <div class="modal-content">
+    <button id="cerrar-info">&times;</button>
+    <img src="cliente.jpg" alt="Foto Cliente">
+    <h2 id="cliente-nombre"></h2>
+    <p><strong>WhatsApp:</strong> <span id="cliente-wsp"></span></p>
+    <p><strong>Cantidad:</strong> <span id="cliente-cantidad"></span></p>
+    <div class="numeros-box">
+      <strong>Números asignados:</strong>
+      <span id="cliente-numeros"></span>
+    </div>
+  </div>
+</div>
+
+<div id="barra-progreso"></div>
+
+
+<script>
+function renderBarraProgreso(id, vendidos, total) {
+  const barra = document.getElementById(id);
+  const porcentaje = ((total - vendidos) / total) * 100;
+  barra.innerHTML = `
+    <div style="background: lightgray; border-radius: 4px; overflow: hidden;">
+      <div style="background: orange; width: ${porcentaje}%; padding: 5px; color: white;">
+        ${porcentaje.toFixed(0)}% disponible
+      </div>
+    </div>
+  `;
+}
+
+renderBarraProgreso("barra-progreso", 10, 100);
+</script>
+
+
+<script src="/script/talonario.js"></script>
